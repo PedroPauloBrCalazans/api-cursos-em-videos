@@ -1,7 +1,7 @@
-import app from "./src/app.js";
+const app = require("./src/app.js");
 
-const PORT = 7474;
+const PORT = 3000;
 
 app.listen(PORT, () => {
-  console.log(`Servidor subiu na porta ${PORT} 🚀🚀🚀`);
+  console.log(`servidor escutando na porta ${PORT} 🚀🚀`);
 });
