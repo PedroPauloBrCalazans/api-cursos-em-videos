@@ -1,7 +1,7 @@
-const { Route } = require("express");
+const express = require("express");
 const PessoaController = require("../controllers/PessoaController.js");
 
-const router = Route();
+const router = express.Router();
 
 router.get("/pessoas", PessoaController.getAll);
 
