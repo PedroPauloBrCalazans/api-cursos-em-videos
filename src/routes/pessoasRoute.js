@@ -6,7 +6,7 @@ const pessoaController = new PessoaController();
 const router = express.Router();
 
 router.get("/pessoas", (req, res) => pessoaController.getAll(req, res));
-router.get("/pessoas", (req, res) => pessoaController.getPorId(req, res));
+router.get("/pessoas/:id", (req, res) => pessoaController.getPorId(req, res));
 router.post("/pessoas", (req, res) =>
   pessoaController.cadastrarRegistro(req, res)
 );

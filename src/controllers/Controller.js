@@ -54,7 +54,7 @@ class Controller {
   }
 
   async excluirRegistros(req, res) {
-    const { id } = req.param;
+    const { id } = req.params;
     try {
       await this.entidadeService.excluirRegistro(Number(id));
       return res
