@@ -7,6 +7,18 @@ class PessoaController extends Controller {
   constructor() {
     super(pessoaService);
   }
+
+  async pegaMatricula(req, res) {
+    const { estudanteId } = req.params;
+    try {
+      const listaMatriculas = await pessoaService.pegaMatriculasPorEstudante(
+        Number(estudanteId)
+      );
+      return res.status(200).json(listaMatriculas);
+    } catch (error) {
+      //erro
+    }
+  }
 }
 
 module.exports = PessoaController;
