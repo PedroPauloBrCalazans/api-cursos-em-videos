@@ -8,7 +8,11 @@ class Services {
   }
 
   async pegaTodosOsRegistros() {
-    return await dataSource[this.model].findAll();
+    return dataSource[this.model].findAll();
+  }
+
+  async pegaRegistrosPorEscopo(escopo) {
+    return dataSource[this.model].scope(escopo).findAll();
   }
 
   async pegarUmRegistroPorId(id) {
