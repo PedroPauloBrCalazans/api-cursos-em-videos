@@ -9,11 +9,11 @@ class PessoaController extends Controller {
   }
 
   async pegaMatriculasAtivas(req, res) {
-    const { estudanteId } = req.params;
+    const { estudante_id } = req.params;
     try {
       const listaMatriculas =
         await pessoaService.pegaMatriculasAtivasPorEstudante(
-          Number(estudanteId)
+          Number(estudante_id)
         );
       return res.status(200).json(listaMatriculas);
     } catch (erro) {
@@ -22,11 +22,11 @@ class PessoaController extends Controller {
   }
 
   async pegaTodasAsMatriculas(req, res) {
-    const { estudanteId } = req.params;
+    const { estudante_id } = req.params;
     try {
       const listaMatriculas =
         await pessoaService.pegaTodasAsMatriculasPorEstudante(
-          Number(estudanteId)
+          Number(estudante_id)
         );
       return res.status(200).json(listaMatriculas);
     } catch (erro) {

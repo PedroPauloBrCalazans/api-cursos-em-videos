@@ -27,20 +27,28 @@ router.delete("/pessoas/:id", (req, res) =>
   pessoaController.excluirRegistros(req, res)
 );
 
-router.get("/pessoas/:estudanteId/matriculas", (req, res) =>
+router.get("/pessoas/:estudante_id/matriculas", (req, res) =>
   pessoaController.pegaMatriculasAtivas(req, res)
 );
 
-router.get("/pessoas/:estudanteId/matriculas/todos", (req, res) =>
+router.get("/pessoas/:estudante_id/matriculas/todos", (req, res) =>
   pessoaController.pegaTodasAsMatriculas(req, res)
 );
 
-router.get("/pessoas/:estudanteId/matriculas/:id", (req, res) =>
-  pessoaController.pegaUm(req, res)
+router.get("/pessoas/:estudante_id/matriculas/:id", (req, res) =>
+  matriculaController.pegaUm(req, res)
 );
 
-router.post("/pessoas/:estudanteId/matriculas", (req, res) =>
+router.post("/pessoas/:estudante_id/matriculas", (req, res) =>
   matriculaController.cadastrarRegistro(req, res)
+);
+
+router.put("/pessoas/:estudante_id/matriculas/:id", (req, res) =>
+  matriculaController.atualizarRegistro(req, res)
+);
+
+router.delete("/pessoas/:estudante_id/matriculas/:id", (req, res) =>
+  matriculaController.excluirRegistros(req, res)
 );
 
 module.exports = router;

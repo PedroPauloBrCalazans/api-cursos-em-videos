@@ -1,5 +1,4 @@
 const converteIds = require("../utils/conversorStringHelper.js");
-
 class Controller {
   constructor(entidadeService) {
     this.entidadeService = entidadeService;
@@ -51,12 +50,14 @@ class Controller {
   }
 
   async atualizarRegistro(req, res) {
-    const { id } = req.params;
+    const { ...params } = req.params;
     const dadosAtualizados = req.body;
+
+    const where = converteIds(params);
     try {
       const isUpdated = await this.entidadeService.atualizaRegistro(
         dadosAtualizados,
-        Number(id)
+        where
       );
 
       if (!isUpdated) {
