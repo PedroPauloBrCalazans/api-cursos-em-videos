@@ -35,6 +35,10 @@ router.get("/pessoas/:estudanteId/matriculas/todos", (req, res) =>
   pessoaController.pegaTodasAsMatriculas(req, res)
 );
 
+router.get("/pessoas/:estudanteId/matriculas/:id", (req, res) =>
+  pessoaController.pegaUm(req, res)
+);
+
 router.post("/pessoas/:estudanteId/matriculas", (req, res) =>
   matriculaController.cadastrarRegistro(req, res)
 );

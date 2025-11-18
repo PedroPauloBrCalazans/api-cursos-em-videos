@@ -19,6 +19,10 @@ class Services {
     return dataSource[this.model].findByPk(id);
   }
 
+  async pegaUmRegistro(where) {
+    return dataSource[this.model].findOne({ where: { ...where } });
+  }
+
   async criarRegistro(dadosRequest) {
     return dataSource[this.model].create(dadosRequest);
   }
