@@ -5,7 +5,7 @@ const cursoController = new CursoController();
 
 const router = express.Router();
 
-router.get("/cursos", (req, res) => cursoController.getAll(req, res));
+router.get("/cursos", (req, res) => cursoController.pegaCursos(req, res));
 router.get("/cursos/:id", (req, res) => cursoController.getPorId(req, res));
 router.post("/cursos", (req, res) =>
   cursoController.cadastrarRegistro(req, res)
