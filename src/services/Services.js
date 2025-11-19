@@ -23,11 +23,9 @@ class Services {
     return dataSource[this.model].findOne({ where: { ...where } });
   }
 
-  async pegarContaRegistros(where) {
+  async pegarContaRegistros(options) {
     return dataSource[this.model].findAndCountAll({
-      where: { ...where },
-      limit: 2,
-      order: [["id", "ASC"]],
+      ...options,
     });
   }
 
