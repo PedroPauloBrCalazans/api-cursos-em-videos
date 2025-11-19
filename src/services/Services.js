@@ -23,6 +23,14 @@ class Services {
     return dataSource[this.model].findOne({ where: { ...where } });
   }
 
+  async pegarContaRegistros(where) {
+    return dataSource[this.model].findAndCountAll({
+      where: { ...where },
+      limit: 2,
+      order: [["id", "ASC"]],
+    });
+  }
+
   async criarRegistro(dadosRequest) {
     return dataSource[this.model].create(dadosRequest);
   }
