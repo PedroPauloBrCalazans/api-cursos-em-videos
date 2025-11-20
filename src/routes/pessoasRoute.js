@@ -23,6 +23,10 @@ router.put("/pessoas/:id", (req, res) =>
   pessoaController.atualizarRegistro(req, res)
 );
 
+router.put("/pessoas/:estudante_id/cancela", (req, res) =>
+  pessoaController.cancelaRegistroEstudante(req, res)
+);
+
 router.delete("/pessoas/:id", (req, res) =>
   pessoaController.excluirRegistros(req, res)
 );
