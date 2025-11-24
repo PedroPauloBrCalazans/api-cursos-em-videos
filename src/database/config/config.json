@@ -4,11 +4,9 @@
     "storage": "./src/database/storage/database.sqlite"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "database": "sqlite",
+    "storage": ":memory:",
+    "logging": false
   },
   "production": {
     "username": "root",
