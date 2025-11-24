@@ -4,7 +4,7 @@
     "storage": "./src/database/storage/database.sqlite"
   },
   "test": {
-    "database": "sqlite",
+    "dialect": "sqlite",
     "storage": ":memory:",
     "logging": false
   },
