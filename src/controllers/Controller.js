@@ -40,10 +40,13 @@ class Controller {
   async cadastrarRegistro(req, res) {
     const dadosRequest = req.body;
     try {
+      if (!dadosRequest.titulo) {
+        return res.status(400).json({ mensage: "Request vazio" });
+      }
       const novoRegistro = await this.entidadeService.criarRegistro(
         dadosRequest
       );
-      return res.status(200).json(novoRegistro);
+      return res.status(201).json(novoRegistro);
     } catch (erro) {
       return res.status(500).json({ erro: erro.message });
     }

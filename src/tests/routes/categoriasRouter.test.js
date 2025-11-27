@@ -3,8 +3,9 @@ const app = require("../../app.js");
 const request = require("supertest");
 const { sequelize } = require("../../database/models");
 
-describe("GET /categorias", () => {
+describe("Rotas de /categorias", () => {
   let server;
+  let idResposta;
 
   // // Inicia o servidor antes de todos os testes
   // beforeAll(() => {
@@ -32,5 +33,18 @@ describe("GET /categorias", () => {
       .set("Accept", "application/json") //setando informação no header
       .expect("content-type", /json/) //verificar se o response retornou um json
       .expect(200);
+  });
+
+  it("Deve adicionar uma nova categoria", async () => {
+    const resposta = await request(app)
+      .post("/categorias")
+      .send({ titulo: ".net core" })
+      .expect(201);
+
+    idResposta = resposta.body.id;
+  });
+
+  it("Não adicionar nada ao passar o body vazio", async () => {
+    await request(app).post("/categorias").send({}).expect(400);
   });
 });
